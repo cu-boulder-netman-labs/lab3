@@ -1,0 +1,16 @@
+{
+    "routers": [
+        {   
+            "device_type": "cisco_ios",
+            "host": "198.51.100.1",
+            "username": "jimmy",
+            "password": "lab123"
+        },
+        {
+            "device_type": "cisco_ios",
+            "host": "198.51.100.3",
+            "username": "jimmy",
+            "password": "lab123"
+        }
+    ]
+}

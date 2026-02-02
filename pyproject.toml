@@ -1,0 +1,9 @@
+[project]
+name = "lab3"
+version = "0.1.0"
+description = "Add your description here"
+requires-python = ">=3.10"
+dependencies = [
+    "netmiko==4.6.0",
+    "pytest==9.0.2",
+]
