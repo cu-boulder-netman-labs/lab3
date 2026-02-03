@@ -24,13 +24,11 @@ jobs:
         python-version: "3.10"
     - name: Install dependencies
       run: |
-        uv sync --frozen # Installs exactly what is in your uv.lock
+        uv sync --dev --frozen # Installs exactly what is in your uv.lock
 
-    - name: Lint with flake8
+    - name: Ruff check
       run: |
-        # We use 'uv run' to execute commands within the synced environment
-        uv run flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
-        uv run flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+        uv run ruff check .
     
     - name: Test with pytest
       run: |

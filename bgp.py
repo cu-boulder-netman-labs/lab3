@@ -19,7 +19,7 @@ class BgpManager:
             self.bgp_conf = self.load_bgp_conf("bgp.conf")['routers'][self.hostname]
             print(self.bgp_conf)
         except KeyError:
-            raise Exception(f"Could not find router in bgp.conf")
+            raise Exception("Could not find router in bgp.conf")
 
     def load_bgp_conf(self, path: str="bgp.conf.json"):
         if not os.path.exists(path):
@@ -48,11 +48,11 @@ class BgpManager:
         return False
 
     def print_bgp_neighbors(self):
-        output = self.conn.send_command(f"show ip bgp neighbors | i BGP neighbor is")
+        output = self.conn.send_command("show ip bgp neighbors | i BGP neighbor is")
         neighbor_ip = output.split()[3].rstrip(",")
         neighbor_as = output.split()[6].rstrip(",")
 
-        state = self.conn.send_command(f"show ip bgp neighbors")
+        state = self.conn.send_command("show ip bgp neighbors")
         state = state.split(" = ")[1].split()[0].rstrip(',')
 
         # Header
